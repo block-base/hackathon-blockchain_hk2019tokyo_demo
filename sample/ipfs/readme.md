@@ -14,13 +14,13 @@ This is sample for IPFS and Safe Encryption using Ether wallet.
  3. Studentの秘密鍵を使ってコンテンツを復元
 
 ### Drafting
-![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/sample/ipfs/img/draft.png)
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/ipfs/img/draft.png)
 
 ### Mockup
-![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/sample/ipfs/img/demo.png)
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/ipfs/img/demo.png)
 
 ### Actual Content
-![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/sample/ipfs/img/dgree.png)
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/ipfs/img/dgree.png)
 
 ### Encrypted Content on IPFS
-![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/sample/ipfs/img/ipfs.png)
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/ipfs/img/ipfs.png)
