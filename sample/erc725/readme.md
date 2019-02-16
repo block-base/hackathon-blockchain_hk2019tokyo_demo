@@ -3,21 +3,21 @@
 ## Concept
 This is sample for ERC725.
 
-## 検討事項
+## 確認事項
  - ERC725のIdentityとKeyManagementシステムとの連携
  - 秘密鍵を無くした場合のリカバリー方法
 
 ## Implementation Note
 ### ERC725のIdentityとERC734のKeyManagementとの連携
- - IdentityはERC725に準拠しプロキシとして動作する。
- - ClaimHolderはERC735に準拠し各種認証情報を保管する。
- - IdentityとClaimHolderをデプロイする。
- - IdentityのKeyにClaimHolderを設定する。
- - ClaimHolderの管理アカウントにIdentityを設定する。
+ 1. IdentityはERC725に準拠しプロキシとして動作する。
+ 2. ClaimHolderはERC735に準拠し各種認証情報を保管する。
+ 3. IdentityとClaimHolderをデプロイする。
+ 4. IdentityのKeyにClaimHolderを設定する。
+ 5. ClaimHolderの管理アカウントにIdentityを設定する。
 
 ### 秘密鍵を無くした場合のリカバリー方法
- - ERC725コントラクトを複数人で運用できる形態にする。
- - 今回のハッカソンでは暫定的に2/3以上の承認があった場合にManagementKeyを変更することを可能にする。
+ 1. ERC725コントラクトを複数人で運用できる形態にする。
+ 2. 今回のハッカソンでは暫定的に2/3以上の承認があった場合にManagementKeyを変更することを可能にする。
 
 ## Actual Implementation
  - ユーザーがIdentityをデプロイできる。

@@ -1,16 +1,26 @@
 
-# データの保管(IPFS)と暗号化
+# データの保管(IPFS)とイーサリアムのウォレットを用いた公開鍵暗号
 
-#### 検証項目
- - データを分散的に保存出来ているIPFS)
- - データは暗号化され、ユーザーは用途毎に使い分けて見せる事が出来る
+## Concept
+This is sample for IPFS and Safe Encryption using Ether wallet.
 
-#### 機能概要
- 1. Aliceのrandom keyを使ってDataを暗号化(cipher text)
- 2. 暗号化したDataをIPFSにアップロード
- 3. Bobの公開鍵とAliceのrandom Keyを使って再暗号化鍵を生成
- 4. 再暗号化鍵をBobの秘密鍵で復元するとAliceのrandom keyが取得できる
- 5. Aliceのrandom keyを用いてIPFS上にあるcipher textを復号し、元データを確認
+## 確認事項
+ - IPFSを用いてコンテンツを分散的に保存できる
+ - 学位、ポートフォリオ等のデータは暗号化され、ユーザーのみ復元することができる
 
-#### 課題
-random keyの使い回しによる元データの流失
+## Actual Implementation
+ 1. Studentの公開鍵を使ってコンテンツを暗号化（公開鍵暗号方式）
+ 2. 暗号化したコンテンツをIPFSを用いて分散保存
+ 3. Studentの秘密鍵を使ってコンテンツを復元
+
+### Drafting
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/sample/ipfs/img/draft.png)
+
+### Mockup
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/sample/ipfs/img/demo.png)
+
+### Actual Content
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/sample/ipfs/img/dgree.png)
+
+### Encrypted Content on IPFS
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/sample/ipfs/img/ipfs.png)
