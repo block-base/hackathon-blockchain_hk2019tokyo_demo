@@ -26,6 +26,10 @@ https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/submit
 ## 機能検証
 https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/sample
 
+###データの保管(IPFS)と暗号化
+https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/sample/ipfs
+
+
 ## スケジュールと役割分担の予定
 ### 2/16
 #### 9:00-12:00
