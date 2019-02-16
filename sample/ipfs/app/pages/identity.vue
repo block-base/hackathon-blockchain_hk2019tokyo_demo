@@ -1,5 +1,6 @@
 <template>
   <section class="container">
+    <img id='decryptoimage' src=''>
     <el-card style="flex: 1">
       <div slot="header" class="clearfix">
       </div>
@@ -163,38 +164,31 @@ export default {
     async input() {
       var imgData = document.getElementById("publish");
       var reader = new FileReader();
+      var pubkey = this.bobPubKey;
+      var privekey = this.bobPrivKey;
+      console.log(pubkey)
+      console.log(privekey)
       this.decryptoImg = imgData.files[0]
-      function readFileAsync() {
-      return new Promise(resolve => {
-        reader.readAsArrayBuffer(imgData.files[0]);
-        reader.onloadend = async function (event) {
-        console.log(reader.result)
-        var data = Buffer.from(reader.result)
-        // var data = reader.result
-        resolve(data)
-        console.log(data)
-        }
-      })
+      reader.onload = async function () {
+          var data = Buffer.from(reader.result).toString('base64')
+          console.log('data:image/png;base64,' + data)
+          var encrypted = await EthCrypto.encryptWithPublicKey(pubkey, data)
+          console.log(encrypted)
+          var hash = await IpfsManager.add(JSON.stringify(encrypted));
+          var url = "https://ipfs.io/ipfs/" + hash
+          console.log(url)
+          var response = await axios(url)
+          console.log(response.data)
+          var decryptWithPrivateKey = await EthCrypto.decryptWithPrivateKey(privekey, response.data)
+          console.log('data:image/png;base64,' + decryptWithPrivateKey)
+          document.getElementById('decryptoimage').src = 'data:image/png;base64,' + decryptWithPrivateKey
+          if(decryptWithPrivateKey == data){
+            console.log("ok")
+          }else{
+            console.log("ng")
+          }
       }
-      var data1 = await readFileAsync()
-      console.log('last' + data1)
-      var encrypted = await EthCrypto.encryptWithPublicKey(this.bobPubKey,data1)
-      console.log(encrypted)
-      //encryptedした物をIPFSに入れる
-      var hash = await IpfsManager.add(JSON.stringify(encrypted));
-      var url = "https://ipfs.io/ipfs/" + hash
-      console.log("https://ipfs.io/ipfs/" + hash)
-      this.ipfsHash = url
-      this.decryptoImg = data1
-
-      var decryptWithPrivateKey = await EthCrypto.decryptWithPrivateKey(this.bobPrivKey,encrypted)
-      console.log(decryptWithPrivateKey)
-      //decriptから画像を復元する
-      if(decryptWithPrivateKey == data1){
-        console.log("ok")
-      }else{
-        console.log("ng")
-      }
+      reader.readAsArrayBuffer(imgData.files[0]);
     }
   }
 }
