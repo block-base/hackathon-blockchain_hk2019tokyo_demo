@@ -42,5 +42,8 @@ https://rinkeby.etherscan.io/address/0x72439bba904bf5d4ce83e90a7e7466a74c3cedab#
 ### ClaimHolder
 https://rinkeby.etherscan.io/address/0x6d101888b74715b7669a1faefb594ad9af282b04#code
 
+### ClaimVerifier
+https://rinkeby.etherscan.io/address/0xaa24902e67f1669882403530c198bf07c835a91f#code
+
 ## Note
 Special Thanks to https://github.com/ERC725Alliance/erc725
