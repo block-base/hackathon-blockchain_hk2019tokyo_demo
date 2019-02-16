@@ -24,7 +24,7 @@ This is sample for ERC725.
  - ユーザーがIdentityをオーナーとしたKeyManagementを登録できる。
  - ユーザーがKeyManagementに認証情報を登録できる。
 
-### Demo
+### Demo (verify certification with qr code)
 https://block-base.github.io/blockchain_hk2019tokyo_demo/sample/erc725/src/index.html?identity=0xb6B23f917D1FF382754CD891F84788248D39a496&type=90000001&hash=0x5665726966696564204f4b
 
 ![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/erc725/img/qr.png)
