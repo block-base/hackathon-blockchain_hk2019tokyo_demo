@@ -1,8 +1,9 @@
 
-# ハッカソンでの成果物について
+# BlockBase project for blockchain_hk2019tokyo
 
-## 作成物
-大学で運用することを前提とした、学位&ポートフォリオ管理システムのプロトコルとパッケージ
+## 成果物
+学位&ポートフォリオ管理システムのプロトコルとパッケージ
+今回のハッカソンでは大学で運用することを前提として開発を行う
 
 ### ソースコード
 https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/submit
