@@ -21,7 +21,7 @@ https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/submit
  - 運用面の課題が適切に検討できている
  - GDPR等の法令対応も考慮できている
 
-# メモ
+# Implementation
 
 ## 機能検証
 https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/sample
