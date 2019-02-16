@@ -28,7 +28,6 @@ https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/sample
 
 ## Technical
  - nuxt.js
- - Firebase
  - ERC725v2
 
 ### データの保管(IPFS)と暗号化
