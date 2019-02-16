@@ -1,0 +1,173 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ERC725v2 Sandbox</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<h2>This is sandbox for ERC725v2</h2>
+<p>This file only do verification for the identity and data.</p>
+<p>Admin function is prepared in the code but not displayed with UI.</p>
+
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.37/dist/web3.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src='./contract.js'></script>
+
+<script>
+
+var CLAIM_TEST = 90000001
+var SCHEME_TEST = 90000001
+
+var OPERATION_CALL = 0
+var ECDSA_TYPE = 1;
+var EXECUTION_PURPOSE = 2;
+
+var userAccount;
+var web3js = new Web3('https://rinkeby.infura.io');
+
+var accountInterval = setInterval(function () {
+    web3js.eth.getAccounts((error, accounts) => {
+        if (accounts[0] !== userAccount) {
+            userAccount = accounts[0];
+        }
+    });
+})
+
+
+var claimVerifier = new web3js.eth.Contract(claimVerifierABI, claimVerifierAddress);
+
+//Verifycation
+var url_string = window.location.href
+var url = new URL(url_string);
+var identity = url.searchParams.get("identity");
+var hash = url.searchParams.get("hash");
+var type = url.searchParams.get("type");
+
+claimVerifier.methods.verify(identity, hash, type).call().then(val => {
+    if(val){
+        alert('verified')
+    } else {
+        alert('not verified')
+    }
+})
+
+/*
+//Admin Implementation
+var userIdentity = new web3js.eth.Contract(identityABI, userIdentityAddress);
+var schoolIdentity = new web3js.eth.Contract(identityABI, schoolIdentityAddress);
+var claimHolder = new web3js.eth.Contract(claimHolderABI, claimHolderAddress);
+
+async function verifyClaimByClaimVerifier() {
+    var key = web3js.utils.soliditySha3(schoolIdentityAddress, CLAIM_TEST)
+    const result = await claimHolder.methods.getClaim(key).call()
+    const valid = await claimVerifier.methods.verify(userIdentityAddress, result.data, CLAIM_TEST).call()
+    console.log(valid)
+}
+
+async function addClaimHolderToIdentity() {
+    var key = '0xb0f23aea7d77ce19f9393243a7b50a3bcaac893c7d68a5a309dea7cacf035fd0'
+    var val = '0x0000000000000000000000006d101888b74715b7669a1faefb594ad9af282b04'
+    const result = await userIdentity.methods.setData(key, val).send({ from: userAccount })
+}
+
+async function verifyClaimFromClaimHolder() {
+    var key = web3js.utils.soliditySha3(schoolIdentityAddress, CLAIM_TEST)
+    const result = await claimHolder.methods.getClaim(key).call()
+    console.log(result)
+    var data = web3js.utils.soliditySha3(userIdentityAddress, result.claimType, result.data)
+    var recovered = web3js.eth.personal.ecRecover(data, result.signature)
+    console.log(recovered)
+}
+
+function addClaimToClaimHolderBySchoolIdentity() {
+
+    var rawData = "Verified OK";
+    var hexData = web3js.utils.asciiToHex(rawData)
+
+    var data = web3js.utils.soliditySha3(userIdentityAddress, CLAIM_TEST, hexData)
+    var sig = web3js.eth.accounts.sign(data, schoolOwnerPriveteKey).signature;
+
+    var encodedCall = claimHolder.methods.addClaim(
+      CLAIM_TEST,
+      SCHEME_TEST,
+      schoolIdentityAddress,
+      sig,
+      hexData,
+      ""
+    ).encodeABI()
+
+    schoolIdentity.methods.execute(OPERATION_CALL, claimHolderAddress, 0, encodedCall).send({ from: userAccount })
+}
+
+function setSchoolIdentityAddressToClaimHolder() {
+    var key = web3js.utils.soliditySha3(schoolIdentityAddress)
+    var encodedCall = claimHolder.methods.setKey(key, EXECUTION_PURPOSE, ECDSA_TYPE).encodeABI()
+    userIdentity.methods.execute(OPERATION_CALL, claimHolderAddress, 0, encodedCall).send({ from: userAccount })
+}
+
+function initializeClaimHolderByUserIdentity() {
+    var encodedCall = claimHolder.methods.initialize().encodeABI()
+    userIdentity.methods.execute(OPERATION_CALL, claimHolderAddress, 0, encodedCall).send({ from: userAccount })
+}
+
+//old web3 implementation
+
+var claimHolder = web3js.eth.contract(claimHolderABI);
+var claimVerifier = web3js.eth.contract(claimVerifierABI);
+var identity = web3js.eth.contract(identityABI);
+
+function deployClaimHolder(){
+    claimHolder.new(userAccount, {
+        from: userAccount,
+        data: claimHolderBytesCode
+    }, function (err, contract) {
+        if (!err) {
+            if (!contract.address) {
+                console.log(contract.transactionHash)
+            } else {
+
+            }
+        }
+    });
+}
+
+function deployVerifierHolder(){
+    claimVerifier.new(userAccount, {
+        from: userAccount,
+        data: claimVerifierBytesCode
+    }, function (err, contract) {
+        if (!err) {
+            if (!contract.address) {
+                console.log(contract.transactionHash)
+            } else {
+
+            }
+        }
+    });
+}
+
+function deployIdentity(){
+    identity.new(userAccount, {
+        from: userAccount,
+        data: identityBytesCode
+    }, function (err, contract) {
+        if (!err) {
+            if (!contract.address) {
+                console.log(contract.transactionHash)
+            } else {
+
+            }
+        }
+    });
+}
+*/
+
+</script>
+
+</body>
+</html>
