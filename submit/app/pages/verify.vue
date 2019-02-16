@@ -1,13 +1,46 @@
 <template>
   <v-layout>
-    <img src="~/assets/img/verified_web.png">
+    <div v-if="loaded">
+      <img src="~/assets/img/verified_web.png" v-if="verified">
+      <img src="~/assets/img/unverified_web.png" v-if="!verified">
+    </div>
   </v-layout>
 </template>
 
 <script>
-import ethereum from '~/plugins/ethereum'
+import ethereum from '~/plugins/ethereum-client'
 
 export default {
+    data() {
+        return {
+            loaded: false,
+            verified: false
+        }
+    },
+    mounted: async function() {
+        const url_string = window.location.href
+        const url = new URL(url_string);
+        if(url.hash != '#/verify'){
+          const params = url.hash.split('?')[1].split('&')
+          const input = {
+            user:'',
+            data:'',
+            type:''
+          }
 
+          for (const param of params){
+            input[param.split('=')[0]] = param.split('=')[1]
+          }
+
+          const val = await ethereum.contract.claimVerifier.methods.verify(input.user, input.data, input.type).call()
+
+          if(val){
+              this.verified = true
+          } else {
+              this.verified = false
+          }
+          this.loaded = true
+        }
+    },
 }
 </script>
