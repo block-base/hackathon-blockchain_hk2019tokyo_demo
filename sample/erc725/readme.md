@@ -24,6 +24,9 @@ This is sample for ERC725.
  - ユーザーがIdentityをオーナーとしたKeyManagementを登録できる。
  - ユーザーがKeyManagementに認証情報を登録できる。
 
+### Drafting
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/erc725/img/draft.png)
+
 ### Identity
  - 0xaad0bb0dFfaEF8C2b0C07Dc9Ba9603083E8bE1f5 (user student -> claim holder)
 https://rinkeby.etherscan.io/address/0xb6b23f917d1ff382754cd891f84788248d39a496#code
