@@ -3,6 +3,7 @@
     <el-card style="flex: 1">
       <div slot="header" class="clearfix">
       </div>
+      <img :src="decryptoImg" alt="">
       <form>
         <!-- <h1>User</h1>
         <div class="form-content">
@@ -50,7 +51,7 @@
           <el-button type="primary" @click="encryptData">Encrypt</el-button>
           <el-button type="primary" @click="decryptData">Decrypt</el-button>
            <el-button type="primary" @click="encryptData2">Encrypt2</el-button>
-          <el-button type="primary" @click="test">account</el-button>
+          <el-button type="primary" @click="test">test</el-button>
            <el-button type="primary" @click="input">input</el-button>
         </div>
         <br>
@@ -95,7 +96,8 @@ export default {
       encryptoData:"",
       ipfsHash:"",
       ipfsData:"",
-      imgData:""
+      imgData:"",
+      decryptoImg:""
     }
   },
   methods: {
@@ -111,10 +113,6 @@ export default {
     },
     async test(){
       console.log(1)
-      // var wallet = Ethers.Wallet.createRandom();
-      // console.log(wallet)
-      var wallet = web3.eth.accounts.create()
-      console.log(wallet)
 
     },
 
@@ -163,24 +161,40 @@ export default {
     },
 
     async input() {
-      console.log(1)
-      var encrypted = await EthCrypto.encryptWithPublicKey(this.bobPubKey,"ko")
-      console.log(2)
-      console.log(encrypted)
-      var decryptWithPrivateKey = await EthCrypto.decryptWithPrivateKey(this.bobPrivKey,encrypted)
-      console.log(decryptWithPrivateKey)
-      var data = this.data
-      // return new Promise(resolve => {
       var imgData = document.getElementById("publish");
       var reader = new FileReader();
-      reader.readAsArrayBuffer(imgData.files[0]);
-      reader.onloadend = async function (event) {
+      this.decryptoImg = imgData.files[0]
+      function readFileAsync() {
+      return new Promise(resolve => {
+        reader.readAsArrayBuffer(imgData.files[0]);
+        reader.onloadend = async function (event) {
         console.log(reader.result)
-        data = Buffer.from(reader.result)
+        var data = Buffer.from(reader.result)
+        // var data = reader.result
+        resolve(data)
         console.log(data)
-        console.log(EthCrypto)
+        }
+      })
       }
-    // })
+      var data1 = await readFileAsync()
+      console.log('last' + data1)
+      var encrypted = await EthCrypto.encryptWithPublicKey(this.bobPubKey,data1)
+      console.log(encrypted)
+      //encryptedした物をIPFSに入れる
+      var hash = await IpfsManager.add(JSON.stringify(encrypted));
+      var url = "https://ipfs.io/ipfs/" + hash
+      console.log("https://ipfs.io/ipfs/" + hash)
+      this.ipfsHash = url
+      this.decryptoImg = data1
+
+      var decryptWithPrivateKey = await EthCrypto.decryptWithPrivateKey(this.bobPrivKey,encrypted)
+      console.log(decryptWithPrivateKey)
+      //decriptから画像を復元する
+      if(decryptWithPrivateKey == data1){
+        console.log("ok")
+      }else{
+        console.log("ng")
+      }
     }
   }
 }
