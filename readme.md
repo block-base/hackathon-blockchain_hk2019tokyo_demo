@@ -1,5 +1,5 @@
 
-# BlockBase project for blockchain_hk2019tokyo
+# BlockBase for blockchain_hk2019tokyo
 
 ## 成果物
  - 学位&ポートフォリオ管理システムのプロトコルとパッケージ
