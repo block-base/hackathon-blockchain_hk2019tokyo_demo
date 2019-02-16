@@ -1,0 +1,25 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "blockchain_hk2019tokyo_demo  app front-end",
+  "author": "BlockBase",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt --hostname 0.0.0.0 --port 3000",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.3.4",
+    "vuetify": "^1.3.14",
+    "vuetify-loader": "^1.0.8",
+    "web3": "^1.0.0-beta.46"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+}
