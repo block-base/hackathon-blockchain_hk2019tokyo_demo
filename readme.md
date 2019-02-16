@@ -26,7 +26,7 @@ https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/submit
 ## 機能検証
 https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/sample
 
-###データの保管(IPFS)と暗号化
+### データの保管(IPFS)と暗号化
 https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/sample/ipfs
 
 
