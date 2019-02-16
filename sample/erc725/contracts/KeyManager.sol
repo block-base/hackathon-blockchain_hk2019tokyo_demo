@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.5.4;
 
 contract KeyManager {
     event KeySet(bytes32 indexed key, uint256 indexed purposes, uint256 indexed keyType);

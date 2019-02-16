@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.5.4;
 
 interface ERC725 {
     event DataChanged(bytes32 indexed key, bytes32 indexed value);
