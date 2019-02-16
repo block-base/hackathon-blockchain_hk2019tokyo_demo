@@ -1,22 +1,25 @@
-# app
+# データの保管(IPFS)とイーサリアムのウォレットを用いた公開鍵暗号
 
-> blockchain_hk2019tokyo_demo  app front-end
+## Concept
+This is sample for IPFS and Safe Encryption using Ether wallet.
 
-## Build Setup
+## 確認事項
+ - IPFSを用いてコンテンツを分散的に保存できる
+ - 学位、ポートフォリオ等のデータは暗号化され、ユーザーのみ復元することができる
 
-``` bash
-# install dependencies
-$ npm install
+## Actual Implementation
+ 1. Studentの公開鍵を使ってコンテンツを暗号化（公開鍵暗号方式）
+ 2. 暗号化したコンテンツをIPFSを用いて分散保存
+ 3. Studentの秘密鍵を使ってコンテンツを復元
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+### Drafting
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/ipfs/img/draft.png)
 
-# build for production and launch server
-$ npm run build
-$ npm start
+### Mockup
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/ipfs/img/demo.png)
 
-# generate static project
-$ npm run generate
-```
+### Actual Content
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/ipfs/img/dgree.png)
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+### Encrypted Content on IPFS
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/sample/ipfs/img/ipfs.png)
