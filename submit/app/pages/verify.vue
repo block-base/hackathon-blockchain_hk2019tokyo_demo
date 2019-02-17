@@ -1,10 +1,8 @@
 <template>
   <v-layout>
     <div v-if="loaded">
-      <img src="~/assets/img/verified_web.png" width="100%" v-if="verified && !breakpoint.xs">
-      <img src="~/assets/img/unverified_web.png" width="100%" v-if="!verified && !breakpoint.xs">
-      <img src="~/assets/img/verified_sp.png" width="100%" v-if="verified && breakpoint.xs">
-      <img src="~/assets/img/unverified_sp.png" width="100%" v-if="!verified && breakpoint.xs">
+      <img src="~/assets/img/verified_web.png" width="100%" v-if="verified">
+      <img src="~/assets/img/unverified_web.png" width="100%" v-if="!verified">
     </div>
   </v-layout>
 </template>
@@ -16,11 +14,11 @@ export default {
     data() {
         return {
             loaded: false,
-            verified: true,
-            breakpoint:this.$vuetify.breakpoint
+            verified: false,
         }
     },
     mounted: async function() {
+
         const url_string = window.location.href
         const url = new URL(url_string);
         if(url.hash != '#/verify'){
@@ -34,7 +32,9 @@ export default {
           for (const param of params){
             input[param.split('=')[0]] = param.split('=')[1]
           }
+
           const val = await ethereum.contract.claimVerifier.methods.verify(input.user, input.data, input.type).call()
+
           if(val){
               this.verified = true
           } else {
