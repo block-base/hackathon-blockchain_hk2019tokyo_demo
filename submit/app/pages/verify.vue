@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             loaded: false,
-            verified: false,
+            verified: true,
             breakpoint:this.$vuetify.breakpoint
         }
     },
@@ -34,9 +34,7 @@ export default {
           for (const param of params){
             input[param.split('=')[0]] = param.split('=')[1]
           }
-
           const val = await ethereum.contract.claimVerifier.methods.verify(input.user, input.data, input.type).call()
-
           if(val){
               this.verified = true
           } else {
