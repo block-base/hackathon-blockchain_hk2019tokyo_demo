@@ -12,12 +12,11 @@ https://unruffled-goldstine-7cbed9.netlify.com/#/
 ### ソースコード
 https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/submit
 
-### Video
-https://www.dropbox.com/sh/p1h9o28fkencql9/AACQQoit_rN_eMNUuyN5pe1-a?dl=0&preview=DigiD_demo.mp4
-
 ### プレゼン資料
+https://drive.google.com/file/d/1b5jMWJFBzS0pRyiP9NN11D6hw4eanbxm/view
 
 ### デモ動画
+https://www.dropbox.com/sh/p1h9o28fkencql9/AACQQoit_rN_eMNUuyN5pe1-a?dl=0&preview=DigiD_demo.mp4
 
 ## アイデンティティのコンセプト
  - 認証情報が一個のアイデンティティに集約されている
