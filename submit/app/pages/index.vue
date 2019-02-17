@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    index
+    <img src="~/assets/img/logo.png" class='pa-5' width="100%">
   </v-layout>
 </template>
 

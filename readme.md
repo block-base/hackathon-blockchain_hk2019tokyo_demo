@@ -1,5 +1,6 @@
 
 # BlockBase for blockchain_hk2019tokyo
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/doc/img/logo.png)
 
 ## 成果物
  - 学位&ポートフォリオ管理システムのプロトコルとパッケージ

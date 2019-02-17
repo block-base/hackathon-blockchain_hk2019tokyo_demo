@@ -40,6 +40,9 @@ export default {
               this.verified = false
           }
           this.loaded = true
+        } else {
+          this.loaded = true
+          alert('Please use QR code or proper url for the verification...')
         }
     },
 }
