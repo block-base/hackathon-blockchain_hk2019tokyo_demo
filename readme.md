@@ -12,6 +12,9 @@ https://unruffled-goldstine-7cbed9.netlify.com/#/
 ### ソースコード
 https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/submit
 
+### Video
+https://www.dropbox.com/sh/p1h9o28fkencql9/AACQQoit_rN_eMNUuyN5pe1-a?dl=0&preview=DigiD_demo.mp4
+
 ### プレゼン資料
 
 ### デモ動画
