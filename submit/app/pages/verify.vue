@@ -1,8 +1,10 @@
 <template>
   <v-layout>
     <div v-if="loaded">
-      <img src="~/assets/img/verified_web.png" v-if="verified">
-      <img src="~/assets/img/unverified_web.png" v-if="!verified">
+      <img src="~/assets/img/verified_web.png" width="100%" v-if="verified && !breakpoint.xs">
+      <img src="~/assets/img/unverified_web.png" width="100%" v-if="!verified && !breakpoint.xs">
+      <img src="~/assets/img/verified_sp.png" width="100%" v-if="verified && breakpoint.xs">
+      <img src="~/assets/img/unverified_sp.png" width="100%" v-if="!verified && breakpoint.xs">
     </div>
   </v-layout>
 </template>
@@ -14,7 +16,8 @@ export default {
     data() {
         return {
             loaded: false,
-            verified: false
+            verified: false,
+            breakpoint:this.$vuetify.breakpoint
         }
     },
     mounted: async function() {
