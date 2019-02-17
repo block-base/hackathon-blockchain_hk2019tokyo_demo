@@ -1,10 +1,13 @@
 
 # BlockBase for blockchain_hk2019tokyo
-![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/doc/img/logo.png)
+![alt text](https://github.com/block-base/blockchain_hk2019tokyo_demo/blob/master/doc/logo.png)
 
 ## 成果物
  - 学位&ポートフォリオ管理システムのプロトコルとパッケージ
  - 今回のハッカソンでは大学で運用することを前提として開発を行う
+
+### Demo
+https://unruffled-goldstine-7cbed9.netlify.com/#/
 
 ### ソースコード
 https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/submit
@@ -59,3 +62,8 @@ https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/sample/ipf
  - ソースコード
  - 発表用資料
  - 動画(任意)
+
+## 実スケジュール
+ - ERC725のv2にアップデート対応に想定以上の時間がかかった
+ - イーサリアムウォレットの公開鍵で暗号化し、秘密鍵で復元するロジックの検証に時間がかかった
+ - 2日目の発表準備は計画通り実施できた
