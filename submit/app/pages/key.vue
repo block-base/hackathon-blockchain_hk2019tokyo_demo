@@ -1,11 +1,11 @@
 <template>
   <div>
     <v-card class='pa-4'>
-      <v-card-title primary-title><div class='headline'>プライベート証明書の復元</div></v-card-title>
+      <v-card-title primary-title><div class='headline'>Decrypto Private Certification</div></v-card-title>
       <v-form>
           <v-text-field label='Select Content' v-model='imageName' prepend-icon='attach_file'></v-text-field>
-          <v-text-field v-model='privateKey' label='秘密鍵' prepend-icon='vpn_key'></v-text-field>
-          <v-btn color='orange darken-2' dark @click='unlock' >証明書の復元<v-icon right>lock_open</v-icon></v-btn>
+          <v-text-field v-model='privateKey' label='Private Key' prepend-icon='vpn_key'></v-text-field>
+          <v-btn color='orange darken-2' dark @click='unlock' >Decrypto Certification<v-icon right>lock_open</v-icon></v-btn>
       </v-form>
     </v-card>
     <img :src='imageUrl' width='100%' class='pa-5' v-if='imageUrl'/>
