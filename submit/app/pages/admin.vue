@@ -1,13 +1,13 @@
 <template>
   <div>
     <v-card class='pa-4'>
-      <v-card-title primary-title><div class='headline'>プライベート証明書の発行</div></v-card-title>
+      <v-card-title primary-title><div class='headline'>Publish　Private Certification</div></v-card-title>
       <v-form>
           <v-text-field v-model='name' label='Name' prepend-icon='account_box'></v-text-field>
           <v-text-field label='Select Content' @click='pickFile' v-model='imageName' prepend-icon='attach_file'></v-text-field>
           <input type='file' style='display: none' ref='image' accept='image/*' @change='onFilePicked'>
-          <span v-if="loading && !disabled">証明書を暗号化し分散型ストレージに発行しています...</span>
-          <v-btn color='orange darken-2' dark @click='upload' :disabled='diabled'>証明書の発行<v-icon right>lock</v-icon></v-btn>
+          <span v-if="loading && !disabled">Encrypting Certification and Publishing on IPFS...</span>
+          <v-btn color='orange darken-2' dark @click='upload' :disabled='diabled'>Publish Certification<v-icon right>lock</v-icon></v-btn>
       </v-form>
     </v-card>
     <v-dialog v-model="dialog" max-width="290">
@@ -31,7 +31,7 @@ import QRCode from 'qrcode'
 export default {
     data() {
         return {
-            name: '浅田真理 ( ' + config.studentAddress + ' )',
+            name: 'Marimo ( ' + config.studentAddress + ' )',
             imageName: '',
             imageUrl: '',
             imageFile: '',
@@ -95,7 +95,7 @@ export default {
             const encodedCall = ethereum.contract.claimHolder.methods.addClaim(config.certification, 0, config.schoolIdentityAddress, sig, hashed, this.ipfs).encodeABI()
             ethereum.contract.schoolIdentity.methods.execute(config.call, config.claimHolderAddress, 0, encodedCall).send({ from: ethereum.account.address, gas:1000000, gasPrice:10000000000 })
             .on('transactionHash', function(confirmationNumber, receipt){
-              document.getElementById('message').innerHTML = '発行中です...'
+              document.getElementById('message').innerHTML = 'Publishing...'
             })
             .on('confirmation', (confirmationNumber, receipt) => {
               const url = location.origin + '/#/verify?type=' + config.certification + '&user=' + config.userIdentityAddress + '&data=' + hashed
@@ -103,14 +103,14 @@ export default {
               QRCode.toCanvas(canvas, url, function (error) {
                 if (error) console.error(error)
                 document.getElementById('message').innerHTML = ''
-                document.getElementById('verifyUrl').innerHTML = '発行されました!'
+                document.getElementById('verifyUrl').innerHTML = 'Published!'
                 document.getElementById('verifyUrl').href = url
                 console.log('success!');
               })
             })
             this.dialog = true
             document.getElementById('verifyUrl').innerHTML = ''
-            document.getElementById('message').innerHTML = 'トランザクションの承認'
+            document.getElementById('message').innerHTML = 'Confirm Transaction'
           }
         },
     }
