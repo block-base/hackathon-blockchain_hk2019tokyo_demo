@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card class='pa-4'>
-      <v-card-title primary-title><div class='headline'>Publish　Private Certification</div></v-card-title>
+      <v-card-title primary-title><div class='headline'>Publish Private Certification</div></v-card-title>
       <v-form>
           <v-text-field v-model='name' label='Name' prepend-icon='account_box'></v-text-field>
           <v-text-field label='Select Content' @click='pickFile' v-model='imageName' prepend-icon='attach_file'></v-text-field>
