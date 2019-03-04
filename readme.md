@@ -71,7 +71,7 @@ https://github.com/block-base/blockchain_hk2019tokyo_demo/tree/master/sample/ipf
  - Preparation for presentation on the second day was able to be implemented as planned
 
 
-##Japanese below
+## Japanese below
 
 ## 成果物
  - 学位&ポートフォリオ管理システムのプロトコルとパッケージ
