@@ -1,13 +1,13 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "blockchain_hk2019tokyo_demo  app front-end",
+  "description": "blockchain_hk2019tokyo_demo app front-end",
   "author": "BlockBase",
   "private": true,
   "scripts": {
-    "dev": "nuxt --hostname 0.0.0.0 --port 3000",
+    "dev": "nuxt --hostname 0.0.0.0 --port 8080",
     "build": "nuxt build",
-    "start": "nuxt start --hostname 0.0.0.0 --port 3000",
+    "start": "nuxt start --hostname 0.0.0.0 --port 8080",
     "generate": "nuxt generate"
   },
   "dependencies": {
