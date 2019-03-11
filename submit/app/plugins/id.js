@@ -1,4 +1,7 @@
-import axios from 'axios'
+var jwt = require('jsonwebtoken');
+
+const fetch = require('node-fetch')
+const qs = require('querystring')
 
 const client_id = '297af3c4-a5e1-4855-9511-d1c82d59b0a7'
 const client_secret = '#Tg(y`(28(+*IiX^*RKQ9kR5';
@@ -15,17 +18,23 @@ function auth () {
 }
 
 async function post (code) {
+    const res = await fetch(token_endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: qs.stringify({
+          client_id,
+          client_secret,
+          code: code,
+          grant_type: 'authorization_code',
+          redirect_uri,
+        })
+      })
+    const json = await res.json()
+    const decoded = jwt.decode(json.id_token);
 
-	const data = {
-        grant_type:'authorization_code',
-        client_id: client_id,
-        code:code,
-        client_secret:client_secret,
-        redirect_uri:redirect_uri,
-    }
-    console.log(data)
-    const response = await axios.post(token_endpoint)
-    return response.data
+    return {id_token:json.id_token, decoded:decoded}
 }
 
 const id = {
